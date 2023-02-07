@@ -1,0 +1,12 @@
+title: Pixel Art Fonts
+email:
+description: ""
+baseurl: ""
+url: ""
+
+collections:
+  fonts:
+    output: true
+    permalink: /fonts/:path
+
+include: ["_*.svg"]

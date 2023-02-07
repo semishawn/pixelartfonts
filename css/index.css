@@ -1,0 +1,84 @@
+body {
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+
+
+.site-info-container {
+	flex-direction: column;
+	align-items: center;
+	margin-right: 80px;
+}
+
+
+
+.font-size-selector {
+	position: relative;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.pixel-link {
+	--dimension: calc(4 * var(--pixel-size));
+	height: var(--dimension);
+	width: var(--dimension);
+	opacity: 0.5;
+	border: calc(var(--pixel-size) / 2) solid var(--color2);
+	background: var(--color3);
+	box-sizing: content-box;
+	pointer-events: none;
+}
+.pixel-row .pixel-link:nth-child(1) {border-left: 0;}
+.pixel-row:nth-child(1) .pixel-link {border-top: 0;}
+.pixel-row:nth-last-child(2) .pixel-link {border-bottom: 0;}
+.pixel-row .pixel-link:last-child {border-right: 0;}
+
+.yes-pixel-link {
+	opacity: 1;
+	pointer-events: all;
+}
+
+.size-preview {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+	letter-spacing: 0;
+	padding: 10px;
+	background: var(--color3);
+	color: var(--color2);
+	pointer-events: none;
+}
+.size-preview-show {opacity: 1;}
+
+.homepage-a {display: none;}
+.homepage-a svg {
+	height: 100%;
+	width: 100%;
+}
+.homepage-a svg > * {fill: var(--color2) !important;}
+.show-homepage-a {display: flex;}
+
+.font-size-label {margin-top: calc(5 * var(--pixel-size));}
+
+.view-all-btn {margin-top: calc(8 * var(--pixel-size));}
+
+
+
+/* Specific Windows */
+.site-window {margin-bottom: 40px;}
+.site-window .window-bottom div span {
+	font-family: "Alagard";
+	font-size: calc(25 * var(--pixel-size));
+	letter-spacing: 0;
+	line-height: normal;
+}
+
+.site-char-bounce {transform: translateY(calc(2 * var(--pixel-size)));}
+
+.explanation-window {max-width: 380px;}
+.explanation-window .window-bottom {text-align: center;}

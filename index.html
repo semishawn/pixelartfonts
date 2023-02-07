@@ -1,0 +1,141 @@
+---
+title: "Pixel Art Fonts"
+---
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	{%- include head.html %}
+	<link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+	<div class="site-info-container">
+		<div class="window site-window">
+			{%- include flair.html %}
+			{%- include flair.html %}
+
+			<div class="window-top">
+				<div class="window-close-btn">&</div>
+			</div>
+	
+			<div class="window-bottom">
+				<div></div>
+			</div>
+		</div>
+
+		<div class="window explanation-window">
+			{%- include flair.html %}
+			{%- include flair.html %}
+
+			<div class="window-top">
+				<div class="window-close-btn">&</div>
+			</div>
+	
+			<div class="window-bottom">
+				<div class="paragraph">An archive of freely downloadable pixel art fonts organized by size and style.</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="window">
+		{%- include flair.html %}
+		{%- include flair.html %}
+
+		<div class="window-top">
+			<div>How many pixels?</div>
+			<div class="window-close-btn">&</div>
+		</div>
+
+		<div class="window-bottom">
+			<div class="font-size-selector">
+				{% for i in (1..16) %}
+				<div class="pixel-row">
+					{% for j in (1..16) %}
+					<a class="pixel-link" href="#"></a>
+					{% endfor %}
+				</div>
+				{% endfor %}
+
+				<div class="size-preview"></div>
+			</div>
+
+			<div class="font-size-label">0&0</div>
+
+			<button class="btn view-all-btn">View All</button>
+		</div>
+	</div>
+
+	<script>
+		var maxSize = 16;
+		var pixelSize = parseInt($(":root").css("--pixel-size"));
+
+
+
+		var siteName = "PixelArtFonts.com";
+		var siteNameChars = siteName.split("");
+		$.each(siteNameChars, function (i, el) {
+			$(".site-window .window-bottom div").append("<span>" + el + "</span");
+		});
+
+		var siteNameCharCount = siteNameChars.length;
+		var currentSiteNameCharBounce = 0;
+		setInterval(function() {
+			$(".site-window .window-bottom div span").removeClass("site-char-bounce");
+			$(".site-window .window-bottom div span").eq(currentSiteNameCharBounce).addClass("site-char-bounce");
+			
+			if (currentSiteNameCharBounce <siteNameCharCount) currentSiteNameCharBounce++;
+			else currentSiteNameCharBounce = 0;
+		}, 100);
+
+
+
+		var fontSizes = [
+			[3, 3],
+			[3, 4],
+			[3, 5],
+			[4, 4],
+			[5, 4],
+			[5, 5],
+			[6, 6],
+			[8, 11]
+		];
+
+		fontSizes.forEach(function(size) {
+			var width = size[0];
+			var height = size[1];
+			var pixelLink = $(`.pixel-row:nth-child(${maxSize - height + 1}) .pixel-link:nth-child(${width})`);
+			pixelLink.addClass("yes-pixel-link");
+
+			$(".size-preview").append(`<div class="homepage-a ${width}x${height}"></div>`);
+			$(`.${width}x${height}`).load(`img/homepage-as/_${width}x${height}.svg`);
+		});
+
+
+
+		$(".pixel-link").mouseenter(function() {
+			var pixelWidth = $(this).index() + 1;
+			var pixelHeight = maxSize - $(this).parent().index();
+			var pixelLinkDimension = $(".pixel-link").height();
+			var font = $(this).attr("data-first-font");
+			
+			$(".size-preview").addClass("size-preview-show");
+			$(".size-preview").css({
+				"height": (pixelHeight * pixelLinkDimension) + ((pixelHeight - 1) * pixelSize) + "px",
+				"width": (pixelWidth * pixelLinkDimension) + ((pixelWidth - 1) * pixelSize) + "px",
+			});
+
+			$(".font-size-label").html(pixelWidth + "&" + pixelHeight);
+			$(".homepage-a").removeClass("show-homepage-a");
+			$(`.${pixelWidth}x${pixelHeight}`).addClass("show-homepage-a");
+		});
+
+		$(".pixel-link").mouseleave(function() {
+			$(".size-preview").removeClass("size-preview-show");
+			$(".font-size-label").html("0&0");
+		});
+	</script>
+</body>
+
+</html>

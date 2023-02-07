@@ -1,0 +1,62 @@
+@font-face {
+	font-family: "Cinnamon";
+	font-weight: 400;
+	font-style: normal;
+	src: url("3/3x3/Cinnamon/Cinnamon.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Bullet-Round";
+	font-weight: 400;
+	font-style: normal;
+	src: url("3/3x4/Bullet-Round/Bullet-Round.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Tripwire-Round";
+	font-weight: 400;
+	font-style: normal;
+	src: url("3/3x5/Tripwire-Round/Tripwire-Round.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Jerky-Sharp";
+	font-weight: 400;
+	font-style: normal;
+	src: url("4/4x4/Jerky-Sharp/Jerky-Sharp.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Lazarus";
+	font-weight: 400;
+	font-style: normal;
+	src: url("5/5x4/Lazarus/Lazarus.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Goof";
+	font-weight: 400;
+	font-style: normal;
+	src: url("5/5x5/Goof/Goof.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Game-Boy";
+	font-weight: 400;
+	font-style: normal;
+	src: url("6/6x6/Game-Boy/Game-Boy.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Romulus";
+	font-weight: 400;
+	font-style: normal;
+	src: url("7/7x7/Romulus/Romulus.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Alagard";
+	font-weight: 400;
+	font-style: normal;
+	src: url("8/8x11/Alagard/Alagard.woff2") format("woff2");
+}

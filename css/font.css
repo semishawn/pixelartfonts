@@ -1,0 +1,64 @@
+.font-name-window .window-bottom {
+	font-family: "Alagard";
+	font-size: calc(25 * var(--pixel-size));
+	letter-spacing: 0;
+	line-height: normal;
+	white-space: nowrap;
+}
+
+.font-info-container {
+	align-items: center;
+	margin-bottom: 80px;
+}
+
+.font-info-container .window + .window {margin-left: 50px;}
+
+.preview-box {
+	border: 0;
+	outline: none;
+	background: transparent;
+	color: var(--color3);
+	/* resize: none; */
+}
+
+.font-format-row {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	cursor: pointer;
+}
+.font-format-row ~ .font-format-row {margin-top: calc(3 * var(--pixel-size));}
+
+.font-format-checkbox {
+	--dimension: calc(5 * var(--pixel-size));
+	height: var(--dimension);
+	width: var(--dimension);
+	border: var(--pixel-size) solid var(--color3);
+	margin-right: calc(3 * var(--pixel-size));
+}
+input:checked + .font-format-row .font-format-checkbox {background: var(--color3);}
+
+.download-btn {margin-top: calc(5 * var(--pixel-size));}
+
+.char-window .window-bottom {padding: calc(10 * var(--pixel-size));}
+
+.char-container {
+	display: grid;
+	grid-template-columns: repeat(13, 1fr);
+	gap: var(--pixel-size);
+	border: var(--pixel-size) solid var(--color3);
+	background: var(--color3);
+}
+
+.char {
+	--dimension: calc(25 * var(--pixel-size));
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: var(--dimension);
+	width: var(--dimension);
+	font-size: calc(12 * var(--pixel-size));
+	line-height: normal;
+	letter-spacing: 0;
+	background: var(--color2);
+}

@@ -1,0 +1,89 @@
+---
+formats: [
+	"ttf",
+	"otf",
+	"woff",
+	"woff2"
+]
+---
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	{%- include head.html -%}
+	<link rel="stylesheet" href="{{ site.baseurl }}/css/font.css">
+
+	<style>
+		.char {font-family: "{{ page.title | replace:" ","-" }}";}
+	</style>
+</head>
+
+<body>
+	<main>
+		<div class="body-spacer"></div>
+
+		<div class="main">
+			<div class="font-info-container">
+				<div class="window font-name-window">
+					<div class="window-top">
+						<div class="window-title">Font Name</div>
+						<div class="window-close-btn">&</div>
+					</div>
+			
+					<div class="window-bottom">{{ page.title }}</div>
+				</div>
+			
+				<div class="window">
+					<div class="window-top">
+						<div class="window-title">Preview</div>
+						<div class="window-close-btn">&</div>
+					</div>
+			
+					<div class="window-bottom">
+						<textarea class="preview-box"></textarea>
+					</div>
+				</div>
+		
+				<div class="window">
+					<div class="window-top">
+						<div class="window-title">Formats</div>
+						<div class="window-close-btn">&</div>
+					</div>
+			
+					<div class="window-bottom">
+						{%- for format in page.formats %}
+						<input id="{{ format }}-option" type="checkbox" name="format" autocomplete="off">
+						<label class="font-format-row" for="{{ format }}-option">
+							<div class="font-format-checkbox"></div>
+							{{ format | upcase }}
+						</label>
+						{%- endfor %}
+			
+						<button class="btn download-btn">Download</button>
+					</div>
+				</div>
+			</div>
+		
+			<div class="window char-window">
+				<div class="window-top">
+					<div class="window-title">Characters</div>
+					<div class="window-close-btn">&</div>
+				</div>
+		
+				<div class="window-bottom">
+					<div class="char-container">
+						{%- assign chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789" | split:"" %}
+						{%- for char in chars %}
+						<div class="char">{{ char }}</div>
+						{%- endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="body-spacer"></div>
+	</main>
+</body>
+
+</html>
